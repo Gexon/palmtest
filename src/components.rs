@@ -2,16 +2,16 @@ use tinyecs::*;
 
 
 // платформа
-pub struct ClassGround;
+pub struct _ClassGround;
 
-impl Component for ClassGround {}
+impl Component for _ClassGround {}
 
 // храним последние id, глобальное.
-pub struct WorldLastId {
+pub struct _WorldLastId {
     pub flora_id: i64,
 }
 
-impl Component for WorldLastId {}
+impl Component for _WorldLastId {}
 
 // спавнер
 pub struct SpawnPoint;
@@ -24,8 +24,8 @@ pub struct FloraClass;
 impl Component for FloraClass {}
 
 // храним текущий id, для конкретного растения.
-pub struct IdHerb {
+pub struct _IdHerb {
     pub id: i64,
 }
 
-impl Component for IdHerb {}
+impl Component for _IdHerb {}

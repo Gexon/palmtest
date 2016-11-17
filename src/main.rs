@@ -19,21 +19,21 @@ fn main() {
 pub fn init(dk_world: &mut World) {
     // добавляем в мир систему спавна.
     dk_world.set_system(SpawnSystem);
+    dk_world.set_system(MarkerSystem);
+    dk_world.set_system(DeleteSystem);
 
-   // {
-//        // вносим в этот глобальный/единственный базовый элемент "платформа/ground".
-//        let mut entity_manager = dk_world.entity_manager();
-//        let entity = entity_manager.create_entity();
-//
-//        entity.add_component(ClassGround);
-//        entity.add_component(WorldLastId { flora_id: 0 });
-//        entity.refresh();
-   // }
+    {
+        // вносим в этот глобальный/единственный базовый элемент "платформа/ground".
+        let mut entity_manager = dk_world.entity_manager();
+        let entity = entity_manager.create_entity();
+
+        entity.add_component(ClassGround);
+        entity.add_component(WorldLastId { flora_id: 0 });
+        entity.refresh();
+    }
 
     // добавляем в мир систему роста растений.
-    for _x in 0..2000 {
-        //println!("Спавним пальму {}", x); // x: i32
-
+    for _x in 0..1_000 {
         // поручаем спавнеру, засумонить в наш мир пальму.
         // создаем спавнер
         let mut entity_manager = dk_world.entity_manager();
@@ -41,6 +41,6 @@ pub fn init(dk_world: &mut World) {
 
         entity_spawner.add_component(SpawnPoint);
         entity_spawner.refresh();
-        println!("Создаем спавнер {}", _x);
+        //println!("Создаем спавнер {} для пальмы.", _x);
     }
 }
